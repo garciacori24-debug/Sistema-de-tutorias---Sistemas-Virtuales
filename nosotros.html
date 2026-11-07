@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSLP - Equipo de Trabajo</title>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS compartido -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Encabezado Institucional -->
+    <header class="main-header">
+        <div class="logo-area">
+            <i class="fa-solid fa-graduation-cap logo-icon"></i>
+        </div>
+        <div class="header-titles">
+            <h1>UNIVERSIDAD POLITÉCNICA DE SAN LUIS POTOSÍ</h1>
+            <h2>SISTEMA DE TUTORÍAS</h2>
+            <h3>MATERIA DE SISTEMAS VIRTUALES</h3>
+        </div>
+    </header>
+
+  <nav class="navbar">
+        <div class="nav-container">
+            <!-- Botón Hamburguesa (solo visible en pantallas pequeñas) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Enlaces de navegación -->
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-item "><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="tutor.html" class="nav-item"><i class="fa-solid fa-chalkboard-user"></i> Tutor</a>
+                <a href="alumnos.html" class="nav-item"><i class="fa-solid fa-users"></i> Alumnos</a>
+                <a href="asignaciones.html" class="nav-item"><i class="fa-solid fa-folder-open"></i> Asignación de tutor</a>
+                <a href="nosotros.html" class="nav-item active"><i class="fa-solid fa-envelope"></i> Nosotros</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal - Sección Nosotros -->
+    <main class="main-container">
+
+        <!-- Banner de Encabezado -->
+        <div class="welcome-banner">
+            <div>
+                <h2><i class="fa-solid fa-users-gear"></i> Equipo de Desarrollo del Proyecto</h2>
+                <p>Conoce a los integrantes encargados del diseño, implementación y mantenimiento del Sistema de Tutorías para la materia de Sistemas Virtuales en la Universidad Politécnica de San Luis Potosí.</p>
+            </div>
+        </div>
+
+        <!-- Grid de Tarjetas de Integrantes -->
+        <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+
+            <!-- Integrante 1 -->
+            <div class="card" style="text-align: center;">
+                <div class="card-header" style="justify-content: center;">
+                    <i class="fa-solid fa-user-gear"></i> Desarrollo de Software
+                </div>
+                <div class="card-body" style="padding: 25px 20px;">
+                    <div style="background: #EBF2FF; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; border: 3px solid #003399;">
+                        <i class="fa-solid fa-user" style="font-size: 2.8rem; color: #003399;"></i>
+                    </div>
+                    <h3 style="color: #003399; font-size: 1.1rem; margin-bottom: 5px;">Coral Jazmín Domínguez García</h3>
+                    <p style="color: #FF6600; font-weight: bold; font-size: 0.85rem; margin-bottom: 12px;">Matrícula: 179761</p>
+                    <p style="font-size: 0.85rem; color: #555; margin-bottom: 15px;">Estudiante de Ingeniería en Tecnologías de la Información</p>
+                    <div style="font-size: 0.85rem; color: #333; border-top: 1px solid #E0E0E0; padding-top: 10px;">
+                        <i class="fa-solid fa-envelope" style="color: #003399;"></i> 179761@.upslp.edu.mx
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integrante 2 -->
+            <div class="card" style="text-align: center;">
+                <div class="card-header" style="justify-content: center;">
+                    <i class="fa-solid fa-database"></i> Base de Datos & Backend
+                </div>
+                <div class="card-body" style="padding: 25px 20px;">
+                    <div style="background: #FFF3EB; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; border: 3px solid #FF6600;">
+                        <i class="fa-solid fa-user" style="font-size: 2.8rem; color: #FF6600;"></i>
+                    </div>
+                    <h3 style="color: #003399; font-size: 1.1rem; margin-bottom: 5px;">Bryan Yareth Gámez Contreras</h3>
+                    <p style="color: #FF6600; font-weight: bold; font-size: 0.85rem; margin-bottom: 12px;">Matrícula: 182934</p>
+                    <p style="font-size: 0.85rem; color: #555; margin-bottom: 15px;">Estudiante de Ingeniería en Tecnologías de la Información</p>
+                    <div style="font-size: 0.85rem; color: #333; border-top: 1px solid #E0E0E0; padding-top: 10px;">
+                        <i class="fa-solid fa-envelope" style="color: #003399;"></i> 182934@.upslp.edu.mx
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integrante 3 -->
+            <div class="card" style="text-align: center;">
+                <div class="card-header" style="justify-content: center;">
+                    <i class="fa-solid fa-network-wired"></i> Arquitectura & Virtualización
+                </div>
+                <div class="card-body" style="padding: 25px 20px;">
+                    <div style="background: #EBF2FF; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; border: 3px solid #003399;">
+                        <i class="fa-solid fa-user" style="font-size: 2.8rem; color: #003399;"></i>
+                    </div>
+                    <h3 style="color: #003399; font-size: 1.1rem; margin-bottom: 5px;">Mildred Guadalupe Sánchez García</h3>
+                    <p style="color: #FF6600; font-weight: bold; font-size: 0.85rem; margin-bottom: 12px;">Matrícula: 182245</p>
+                    <p style="font-size: 0.85rem; color: #555; margin-bottom: 15px;">Estudiante de Ingeniería en Tecnologías de la Información</p>
+                    <div style="font-size: 0.85rem; color: #333; border-top: 1px solid #E0E0E0; padding-top: 10px;">
+                        <i class="fa-solid fa-envelope" style="color: #003399;"></i> 182245@alumnos.upslp.edu.mx
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integrante 4 -->
+            <div class="card" style="text-align: center;">
+                <div class="card-header" style="justify-content: center;">
+                    <i class="fa-solid fa-clipboard-check"></i> Calidad & Documentación
+                </div>
+                <div class="card-body" style="padding: 25px 20px;">
+                    <div style="background: #FFF3EB; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; border: 3px solid #FF6600;">
+                        <i class="fa-solid fa-user" style="font-size: 2.8rem; color: #FF6600;"></i>
+                    </div>
+                    <h3 style="color: #003399; font-size: 1.1rem; margin-bottom: 5px;">Jazmín Vanesa Rojas Flores</h3>
+                    <p style="color: #FF6600; font-weight: bold; font-size: 0.85rem; margin-bottom: 12px;">Matrícula: 182463</p>
+                    <p style="font-size: 0.85rem; color: #555; margin-bottom: 15px;">Estudiante de Ingeniería en Tecnologías de la Información</p>
+                    <div style="font-size: 0.85rem; color: #333; border-top: 1px solid #E0E0E0; padding-top: 10px;">
+                        <i class="fa-solid fa-envelope" style="color: #003399;"></i> 182463@upslp.edu.mx
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integrante 5 -->
+            <div class="card" style="text-align: center;">
+                <div class="card-header" style="justify-content: center;">
+                    <i class="fa-solid fa-network-wired"></i> Calidad & Documentación
+                </div>
+                <div class="card-body" style="padding: 25px 20px;">
+                    <div style="background: #EBF2FF; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; border: 3px solid #003399;">
+                        <i class="fa-solid fa-user" style="font-size: 2.8rem; color: #003399;"></i>
+                    </div>
+                    <h3 style="color: #003399; font-size: 1.1rem; margin-bottom: 5px;">Gilberto Emiliano Turrubiartes</h3>
+                    <p style="color: #FF6600; font-weight: bold; font-size: 0.85rem; margin-bottom: 12px;">Matrícula: 182178</p>
+                    <p style="font-size: 0.85rem; color: #555; margin-bottom: 15px;">Estudiante de Ingeniería en Tecnologías de la Información</p>
+                    <div style="font-size: 0.85rem; color: #333; border-top: 1px solid #E0E0E0; padding-top: 10px;">
+                        <i class="fa-solid fa-envelope" style="color: #003399;"></i> 182178@alumnos.upslp.edu.mx
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Ventana Modal de Notificaciones -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal">
+            <h3 id="modalTitle">Título Modal</h3>
+            <p id="modalContent">Contenido detallado...</p>
+            <button class="btn-orange" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div>
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Urbano Villalón #500, Col. La Ladrillera, S.L.P.</p>
+                <p><i class="fa-solid fa-envelope"></i> contacto@upslp.edu.mx</p>
+                <p><i class="fa-solid fa-phone"></i> +52 (444) 870-2100</p>
+            </div>
+            <div>
+                <h4>Redes Sociales</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Universidad Politécnica de San Luis Potosí. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Archivo JS compartido -->
+    <script src="script.js"></script>
+</body>
+</html>

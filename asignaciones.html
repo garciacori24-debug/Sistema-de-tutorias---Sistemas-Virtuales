@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSLP - Asignación de Tutores</title>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS compartido -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Encabezado Institucional -->
+    <header class="main-header">
+        <div class="logo-area">
+            <i class="fa-solid fa-graduation-cap logo-icon"></i>
+        </div>
+        <div class="header-titles">
+            <h1>UNIVERSIDAD POLITÉCNICA DE SAN LUIS POTOSÍ</h1>
+            <h2>SISTEMA DE TUTORÍAS</h2>
+            <h3>MATERIA DE SISTEMAS VIRTUALES</h3>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Botón Hamburguesa (solo visible en pantallas pequeñas) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Enlaces de navegación -->
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="tutor.html" class="nav-item"><i class="fa-solid fa-chalkboard-user"></i> Tutor</a>
+                <a href="alumnos.html" class="nav-item"><i class="fa-solid fa-users"></i> Alumnos</a>
+                <a href="asignaciones.html" class="nav-item active"><i class="fa-solid fa-folder-open"></i> Asignación de tutor</a>
+                <a href="nosotros.html" class="nav-item"><i class="fa-solid fa-envelope"></i> Nosotros</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal - Sección Asignaciones -->
+    <main class="main-container">
+
+        <!-- Banner de Encabezado -->
+        <div class="welcome-banner">
+            <div>
+                <h2><i class="fa-solid fa-link"></i> Asignación de Tutor al Alumno</h2>
+                <p>Vincula a los estudiantes de Sistemas Virtuales con su profesor tutor correspondiente y consulta el padrón oficial de asignaciones.</p>
+            </div>
+        </div>
+
+        <!-- Grid de 2 Columnas (Tabla a la izquierda, Formulario a la derecha) -->
+        <div class="dashboard-grid layout-dos-columnas">
+
+            <!-- Columna Izquierda: Tabla de Asignaciones Existentes -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-list-check"></i> Alumnos con Tutor Asignado
+                </div>
+                <div class="card-body" style="overflow-x: auto;">
+                    <table class="data-table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="background-color: #003399; color: #FFFFFF;">
+                                <th style="padding: 10px; border-radius: 4px 0 0 0;">Matrícula</th>
+                                <th style="padding: 10px;">Nombre Alumno</th>
+                                <th style="padding: 10px;">Correo Alumno</th>
+                                <th style="padding: 10px;">Tutor Asignado</th>
+                                <th style="padding: 10px;">Materia</th>
+                                <th style="padding: 10px; border-radius: 0 4px 0 0;">Estatus</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaAsignacionesBody">
+                            <tr style="border-bottom: 1px solid #E0E0E0;">
+                                <td style="padding: 10px; font-weight: bold; color: #003399;">179761</td>
+                                <td style="padding: 10px;">Coral Domínguez García</td>
+                                <td style="padding: 10px;">179761@alumnos.upslp.edu.mx</td>
+                                <td style="padding: 10px; font-weight: 600;">M.C. Ma. De Jesús Alonso Ruiz</td>
+                                <td style="padding: 10px;">Sistemas Virtuales</td>
+                                <td style="padding: 10px;">
+                                    <span style="background: #EBF2FF; color: #003399; padding: 4px 8px; border-radius: 12px; font-weight: bold; font-size: 0.8rem;">
+                                        <i class="fa-solid fa-circle-check"></i> Con Tutor
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #E0E0E0; background-color: #F9FAFC;">
+                                <td style="padding: 10px; font-weight: bold; color: #003399;">182934</td>
+                                <td style="padding: 10px;">Bryan Yareth Gámez Contreras</td>
+                                <td style="padding: 10px;">182934@alumnos.upslp.edu.mx</td>
+                                <td style="padding: 10px; font-weight: 600;">M.C. Ma. De Jesús Alonso Ruiz</td>
+                                <td style="padding: 10px;">Sistemas Virtuales</td>
+                                <td style="padding: 10px;">
+                                    <span style="background: #EBF2FF; color: #003399; padding: 4px 8px; border-radius: 12px; font-weight: bold; font-size: 0.8rem;">
+                                        <i class="fa-solid fa-circle-check"></i> Con Tutor
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #E0E0E0;">
+                                <td style="padding: 10px; font-weight: bold; color: #003399;">181679</td>
+                                <td style="padding: 10px;">Bryan Ramírez García</td>
+                                <td style="padding: 10px;">181679@alumnos.upslp.edu.mx</td>
+                                <td style="padding: 10px; color: #777; font-style: italic;">Sin Asignar</td>
+                                <td style="padding: 10px;">Sistemas Virtuales</td>
+                                <td style="padding: 10px;">
+                                    <span style="background: #FFF3EB; color: #FF6600; padding: 4px 8px; border-radius: 12px; font-weight: bold; font-size: 0.8rem;">
+                                        <i class="fa-solid fa-clock"></i> Sin Tutor
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Panel de Asignación de Tutor -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-user-gear"></i> Realizar Asignación
+                </div>
+                <div class="card-body">
+                    <form id="registroAsignacionForm" onsubmit="registrarAsignacion(event)">
+                        
+                        <div class="form-group">
+                            <label for="asigAlumno"><i class="fa-solid fa-user-graduate" style="color: #003399;"></i> Seleccionar Alumno</label>
+                            <select id="asigAlumno" required style="width: 100%; padding: 10px; border: 1px solid #CCC; border-radius: 5px; font-size: 0.95rem;">
+                                <option value="" disabled selected>-- Selecciona un alumno --</option>
+                                <option value="179761|Coral Domínguez García|179761@alumnos.upslp.edu.mx">179761 - Coral Domínguez García</option>
+                                <option value="182934|Bryan Yareth Gámez Contreras|182934@alumnos.upslp.edu.mx">182934 - Bryan Yareth Gámez Contreras</option>
+                                <option value="181679|Bryan Ramírez García|181679@alumnos.upslp.edu.mx">181679 - Bryan Ramírez García</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asigTutor"><i class="fa-solid fa-chalkboard-user" style="color: #003399;"></i> Profesor Tutor Asignado</label>
+                            <select id="asigTutor" required style="width: 100%; padding: 10px; border: 1px solid #CCC; border-radius: 5px; font-size: 0.95rem;">
+                                <option value="" disabled selected>-- Selecciona un tutor --</option>
+                                <option value="M.C. Ma. De Jesús Alonso Ruiz">M.C. Ma. De Jesús Alonso Ruiz</option>
+                                <option value="Ing. Roberto Hernández Silva">Ing. Roberto Hernández Silva</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asigMateria"><i class="fa-solid fa-book-bookmark" style="color: #003399;"></i> Materia</label>
+                            <input type="text" id="asigMateria" value="Sistemas Virtuales" readonly style="background-color: #F4F6F9; color: #555;">
+                        </div>
+
+                        <button type="submit" class="btn-orange btn-block" style="margin-top: 20px;">
+                            <i class="fa-solid fa-link"></i> Registrar Asignación
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Ventana Modal de Notificaciones -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal">
+            <h3 id="modalTitle">Título Modal</h3>
+            <p id="modalContent">Contenido detallado...</p>
+            <button class="btn-orange" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div>
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Urbano Villalón #500, Col. La Ladrillera, S.L.P.</p>
+                <p><i class="fa-solid fa-envelope"></i> contacto@upslp.edu.mx</p>
+                <p><i class="fa-solid fa-phone"></i> +52 (444) 870-2100</p>
+            </div>
+            <div>
+                <h4>Redes Sociales</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Universidad Politécnica de San Luis Potosí. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Archivo JS compartido -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSLP - Registro y Control de Alumnos</title>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS compartido -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Encabezado Institucional -->
+    <header class="main-header">
+        <div class="logo-area">
+            <i class="fa-solid fa-graduation-cap logo-icon"></i>
+        </div>
+        <div class="header-titles">
+            <h1>UNIVERSIDAD POLITÉCNICA DE SAN LUIS POTOSÍ</h1>
+            <h2>SISTEMA DE TUTORÍAS</h2>
+            <h3>MATERIA DE SISTEMAS VIRTUALES</h3>
+        </div>
+    </header>
+
+   <nav class="navbar">
+        <div class="nav-container">
+            <!-- Botón Hamburguesa (solo visible en pantallas pequeñas) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Enlaces de navegación -->
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-item "><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="tutor.html" class="nav-item"><i class="fa-solid fa-chalkboard-user"></i> Tutor</a>
+                <a href="alumnos.html" class="nav-item active"><i class="fa-solid fa-users"></i> Alumnos</a>
+                <a href="asignaciones.html" class="nav-item"><i class="fa-solid fa-folder-open"></i> Asignación de tutor</a>
+                <a href="nosotros.html" class="nav-item"><i class="fa-solid fa-envelope"></i> Nosotros</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal - Sección Alumnos -->
+    <main class="main-container">
+        <!-- Banner de Encabezado -->
+        <div class="welcome-banner">
+            <div>
+                <h2><i class="fa-solid fa-user-graduate"></i> Control y Registro de Alumnos</h2>
+                <p>Consulta la lista de estudiantes inscritos en la materia de Sistemas Virtuales y da de alta nuevos registros en el sistema.</p>
+            </div>
+        </div>
+
+        <!-- Grid de 2 Columnas (Tabla a la izquierda, Formulario a la derecha) -->
+        <div class="dashboard-grid layout-dos-columnas">
+
+            <!-- Tabla de Alumnos Registrados -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-list-check"></i> Alumnos Registrados
+                </div>
+                <div class="card-body" style="overflow-x: auto;">
+                    <table class="data-table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="background-color: #003399; color: #FFFFFF;">
+                                <th style="padding: 10px; border-radius: 4px 0 0 0;">Matrícula</th>
+                                <th style="padding: 10px;">Nombre del Alumno</th>
+                                <th style="padding: 10px;">Correo Electrónico</th>
+                                <th style="padding: 10px; border-radius: 0 4px 0 0;">Estatus</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaAlumnosBody">
+                            <tr style="border-bottom: 1px solid #E0E0E0;">
+                                <td style="padding: 10px; font-weight: bold; color: #003399;">179761</td>
+                                <td style="padding: 10px;">Coral Domínguez García</td>
+                                <td style="padding: 10px;">179761@alumnos.upslp.edu.mx</td>
+                                <td style="padding: 10px;">
+                                    <span style="background: #EBF2FF; color: #003399; padding: 4px 8px; border-radius: 12px; font-weight: bold; font-size: 0.8rem;">
+                                        <i class="fa-solid fa-circle-check"></i> Con Tutor
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #E0E0E0; background-color: #F9FAFC;">
+                                <td style="padding: 10px; font-weight: bold; color: #003399;">182934</td>
+                                <td style="padding: 10px;">Bryan Yareth Gámez Contreras</td>
+                                <td style="padding: 10px;">182934@alumnos.upslp.edu.mx</td>
+                                <td style="padding: 10px;">
+                                    <span style="background: #EBF2FF; color: #003399; padding: 4px 8px; border-radius: 12px; font-weight: bold; font-size: 0.8rem;">
+                                        <i class="fa-solid fa-circle-check"></i> Con Tutor
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #E0E0E0;">
+                                <td style="padding: 10px; font-weight: bold; color: #003399;">181679</td>
+                                <td style="padding: 10px;">Bryan Ramírez García</td>
+                                <td style="padding: 10px;">181679@alumnos.upslp.edu.mx</td>
+                                <td style="padding: 10px;">
+                                    <span style="background: #FFF3EB; color: #FF6600; padding: 4px 8px; border-radius: 12px; font-weight: bold; font-size: 0.8rem;">
+                                        <i class="fa-solid fa-clock"></i> Sin Tutor
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Panel de Registro de Nuevo Alumno -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-user-plus"></i> Registrar Nuevo Alumno
+                </div>
+                <div class="card-body">
+                    <form id="registroAlumnoForm" onsubmit="registrarAlumno(event)">
+                        
+                        <div class="form-group">
+                            <label for="alumnoMatricula"><i class="fa-solid fa-id-card" style="color: #003399;"></i> Matrícula</label>
+                            <input type="text" id="alumnoMatricula" placeholder="Ej. 179761" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alumnoNombre"><i class="fa-solid fa-user" style="color: #003399;"></i> Nombre Completo</label>
+                            <input type="text" id="alumnoNombre" placeholder="Ej. Coral Domínguez García" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alumnoCorreo"><i class="fa-solid fa-envelope" style="color: #003399;"></i> Correo Electrónico</label>
+                            <input type="email" id="alumnoCorreo" placeholder="ejemplo@alumnos.upslp.edu.mx" required>
+                        </div>
+
+                        <button type="submit" class="btn-orange btn-block" style="margin-top: 20px;">
+                            <i class="fa-solid fa-plus-circle"></i> Registrar Alumno
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Ventana Modal de Notificaciones -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal">
+            <h3 id="modalTitle">Título Modal</h3>
+            <p id="modalContent">Contenido detallado...</p>
+            <button class="btn-orange" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div>
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Urbano Villalón #500, Col. La Ladrillera, S.L.P.</p>
+                <p><i class="fa-solid fa-envelope"></i> contacto@upslp.edu.mx</p>
+                <p><i class="fa-solid fa-phone"></i> +52 (444) 870-2100</p>
+            </div>
+            <div>
+                <h4>Redes Sociales</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Universidad Politécnica de San Luis Potosí. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Archivo JS compartido -->
+    <script src="script.js"></script>
+</body>
+</html>
