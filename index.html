@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSLP - Sistema de Tutorías - Sistemas Virtuales</title>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Encabezado Institucional -->
+    <header class="main-header">
+        <div class="logo-area">
+            <i class="fa-solid fa-graduation-cap logo-icon"></i>
+        </div>
+        <div class="header-titles">
+            <h1>UNIVERSIDAD POLITÉCNICA DE SAN LUIS POTOSÍ</h1>
+            <h2>SISTEMA DE TUTORÍAS</h2>
+            <h3>MATERIA DE SISTEMAS VIRTUALES</h3>
+        </div>
+    </header>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-item active" onclick="switchTab('inicio')"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="#" class="nav-item" onclick="switchTab('tutorias')"><i class="fa-solid fa-chalkboard-user"></i> Tutorías</a>
+            <a href="#" class="nav-item" onclick="switchTab('alumnos')"><i class="fa-solid fa-users"></i> Alumnos</a>
+            <a href="#" class="nav-item" onclick="switchTab('recursos')"><i class="fa-solid fa-folder-open"></i> Recursos</a>
+            <a href="#" class="nav-item" onclick="switchTab('calificaciones')"><i class="fa-solid fa-award"></i> Calificaciones</a>
+            <a href="#" class="nav-item" onclick="switchTab('contacto')"><i class="fa-solid fa-envelope"></i> Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-container">
+
+        <!-- Banner de Notificación Interactiva -->
+        <div class="welcome-banner">
+            <div>
+                <h2><i class="fa-solid fa-laptop-code"></i> Portal de Sistemas Virtuales</h2>
+                <p>Bienvenido al Sistema de Tutorías de la UPSLP. Consulta tus sesiones programadas, materiales y avisos del periodo académico.</p>
+            </div>
+            <button class="btn-orange" onclick="openModal('Tutoría Solicitada', 'Haz solicitado una nueva sesión de tutoría. Un docente confirmará la cita.')">
+                <i class="fa-solid fa-calendar-plus"></i> Solicitar Tutoría
+            </button>
+        </div>
+
+        <!-- Grid Dashboard -->
+        <div class="dashboard-grid">
+
+            <!-- Acceso al Sistema / Perfil -->
+            <div class="card" id="loginCard">
+                <div class="card-header">
+                    <i class="fa-solid fa-user-lock"></i> Acceso al Sistema
+                </div>
+                <div class="card-body">
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="matricula">Matrícula / Usuario</label>
+                            <input type="text" id="matricula" placeholder="Ej. 170999" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn-orange btn-block">
+                            <i class="fa-solid fa-right-to-bracket"></i> Ingresar
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Accesos Rápidos -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-cubes"></i> Módulos Principales
+                </div>
+                <div class="card-body">
+                    <div class="quick-grid">
+                        <div class="quick-card" onclick="openModal('Mis Tutorías', 'Tienes 2 tutorías programadas para esta semana: Sistemas Virtuales (Jueves 10:00 AM).')">
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <h4>Mis Tutorías</h4>
+                        </div>
+                        <div class="quick-card" onclick="openModal('Horarios de Atención', 'Horarios de atención de Sistemas Virtuales: Lunes a Viernes de 9:00 AM a 2:00 PM.')">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <h4>Horarios</h4>
+                        </div>
+                        <div class="quick-card" onclick="openModal('Material de Apoyo', 'Se han subido las guías prácticas de Máquinas Virtuales y Contenedores Docker.')">
+                            <i class="fa-solid fa-book-open"></i>
+                            <h4>Material Apoyo</h4>
+                        </div>
+                        <div class="quick-card" onclick="openModal('Avisos Recientes', 'Recordatorio: La entrega de la Práctica 2 de Sistemas Virtuales finaliza este viernes.')">
+                            <i class="fa-solid fa-bell"></i>
+                            <h4>Avisos Recientes</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendario de Actividades -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-calendar-check"></i> Calendario de Tutorías
+                </div>
+                <div class="card-body">
+                    <div class="calendar-widget">
+                        <div class="calendar-header">
+                            <button onclick="changeMonth(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                            <span id="calendarMonth">Noviembre 2026</span>
+                            <button onclick="changeMonth(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                        <div class="calendar-days">
+                            <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid">
+                            <!-- Renderizado con JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Ventana Modal de Notificaciones -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal">
+            <h3 id="modalTitle">Título Modal</h3>
+            <p id="modalContent">Contenido detallado...</p>
+            <button class="btn-orange" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div>
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Urbano Villalón #500, Col. La Ladrillera, S.L.P.</p>
+                <p><i class="fa-solid fa-envelope"></i> contacto@upslp.edu.mx</p>
+                <p><i class="fa-solid fa-phone"></i> +52 (444) 870-2100</p>
+            </div>
+            <div>
+                <h4>Redes Sociales</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Universidad Politécnica de San Luis Potosí. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Archivo JS externo -->
+    <script src="script.js"></script>
+</body>
+</html>
